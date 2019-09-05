@@ -1,0 +1,17 @@
+type Course @model {
+  id: ID!
+  course_code: String!
+  department_code: String!
+  name: String!
+  books: [Book] @connection(name: "CourseBooks")
+}
+
+type Book @model {
+  id: ID!
+  course: Course @connection(name: "CourseBooks")
+  isbn10: String!
+  title: String!
+  amazon_used_price: Int!
+  image_link: String!
+  edition: String!
+}

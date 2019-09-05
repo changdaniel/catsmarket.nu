@@ -1,0 +1,14 @@
+{
+    "prod": {
+        "awscloudformation": {
+            "AuthRoleName": "catsmarketnu-prod-20190904224321-authRole",
+            "UnauthRoleArn": "arn:aws:iam::861388200582:role/catsmarketnu-prod-20190904224321-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::861388200582:role/catsmarketnu-prod-20190904224321-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "catsmarketnu-prod-20190904224321-deployment",
+            "UnauthRoleName": "catsmarketnu-prod-20190904224321-unauthRole",
+            "StackName": "catsmarketnu-prod-20190904224321",
+            "StackId": "arn:aws:cloudformation:us-east-1:861388200582:stack/catsmarketnu-prod-20190904224321/4ecd9680-cf8f-11e9-b4a2-0e639cbb91d4"
+        }
+    }
+}
