@@ -1,123 +1,207 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createCourse = `mutation CreateCourse($input: CreateCourseInput!) {
-  createCourse(input: $input) {
+export const deleteActiveOrders = `mutation DeleteActiveOrders($id: Int!) {
+  deleteActive_orders(id: $id) {
     id
-    course_code
-    department_code
-    name
-    books {
-      items {
-        id
-        isbn10
-        title
-        amazon_used_price
-        image_link
-        edition
-      }
-      nextToken
-    }
+    buyer_email
+    date_ordered
+    listing_id
   }
 }
 `;
-export const updateCourse = `mutation UpdateCourse($input: UpdateCourseInput!) {
-  updateCourse(input: $input) {
+export const createActiveOrders = `mutation CreateActiveOrders(
+  $createactive_ordersInput: Createactive_ordersInput!
+) {
+  createActive_orders(createactive_ordersInput: $createactive_ordersInput) {
     id
-    course_code
-    department_code
-    name
-    books {
-      items {
-        id
-        isbn10
-        title
-        amazon_used_price
-        image_link
-        edition
-      }
-      nextToken
-    }
+    buyer_email
+    date_ordered
+    listing_id
   }
 }
 `;
-export const deleteCourse = `mutation DeleteCourse($input: DeleteCourseInput!) {
-  deleteCourse(input: $input) {
+export const updateActiveOrders = `mutation UpdateActiveOrders(
+  $updateactive_ordersInput: Updateactive_ordersInput!
+) {
+  updateActive_orders(updateactive_ordersInput: $updateactive_ordersInput) {
     id
-    course_code
-    department_code
-    name
-    books {
-      items {
-        id
-        isbn10
-        title
-        amazon_used_price
-        image_link
-        edition
-      }
-      nextToken
-    }
+    buyer_email
+    date_ordered
+    listing_id
   }
 }
 `;
-export const createBook = `mutation CreateBook($input: CreateBookInput!) {
-  createBook(input: $input) {
+export const deleteBooks = `mutation DeleteBooks($id: Int!) {
+  deleteBooks(id: $id) {
     id
-    course {
-      id
-      course_code
-      department_code
-      name
-      books {
-        nextToken
-      }
-    }
-    isbn10
     title
+    isbn10
     amazon_used_price
-    image_link
     edition
+    image
   }
 }
 `;
-export const updateBook = `mutation UpdateBook($input: UpdateBookInput!) {
-  updateBook(input: $input) {
+export const createBooks = `mutation CreateBooks($createbooksInput: CreatebooksInput!) {
+  createBooks(createbooksInput: $createbooksInput) {
     id
-    course {
-      id
-      course_code
-      department_code
-      name
-      books {
-        nextToken
-      }
-    }
-    isbn10
     title
+    isbn10
     amazon_used_price
-    image_link
     edition
+    image
   }
 }
 `;
-export const deleteBook = `mutation DeleteBook($input: DeleteBookInput!) {
-  deleteBook(input: $input) {
+export const updateBooks = `mutation UpdateBooks($updatebooksInput: UpdatebooksInput!) {
+  updateBooks(updatebooksInput: $updatebooksInput) {
     id
-    course {
-      id
-      course_code
-      department_code
-      name
-      books {
-        nextToken
-      }
-    }
-    isbn10
     title
+    isbn10
     amazon_used_price
-    image_link
     edition
+    image
+  }
+}
+`;
+export const deleteCompletedOrders = `mutation DeleteCompletedOrders($order_id: Int!) {
+  deleteCompleted_orders(order_id: $order_id) {
+    order_id
+    price
+    date_listed
+    date_ordered
+    date_completed
+    seller_email
+    buyer_email
+    reason
+    book_id
+  }
+}
+`;
+export const createCompletedOrders = `mutation CreateCompletedOrders(
+  $createcompleted_ordersInput: Createcompleted_ordersInput!
+) {
+  createCompleted_orders(
+    createcompleted_ordersInput: $createcompleted_ordersInput
+  ) {
+    order_id
+    price
+    date_listed
+    date_ordered
+    date_completed
+    seller_email
+    buyer_email
+    reason
+    book_id
+  }
+}
+`;
+export const updateCompletedOrders = `mutation UpdateCompletedOrders(
+  $updatecompleted_ordersInput: Updatecompleted_ordersInput!
+) {
+  updateCompleted_orders(
+    updatecompleted_ordersInput: $updatecompleted_ordersInput
+  ) {
+    order_id
+    price
+    date_listed
+    date_ordered
+    date_completed
+    seller_email
+    buyer_email
+    reason
+    book_id
+  }
+}
+`;
+export const deleteCourses = `mutation DeleteCourses($id: Int!) {
+  deleteCourses(id: $id) {
+    id
+    code
+    subject_code
+    name
+  }
+}
+`;
+export const createCourses = `mutation CreateCourses($createcoursesInput: CreatecoursesInput!) {
+  createCourses(createcoursesInput: $createcoursesInput) {
+    id
+    code
+    subject_code
+    name
+  }
+}
+`;
+export const updateCourses = `mutation UpdateCourses($updatecoursesInput: UpdatecoursesInput!) {
+  updateCourses(updatecoursesInput: $updatecoursesInput) {
+    id
+    code
+    subject_code
+    name
+  }
+}
+`;
+export const deleteListings = `mutation DeleteListings($id: Int!) {
+  deleteListings(id: $id) {
+    id
+    price
+    date_listed
+    seller_email
+    verified
+    book_id
+  }
+}
+`;
+export const createListings = `mutation CreateListings($createlistingsInput: CreatelistingsInput!) {
+  createListings(createlistingsInput: $createlistingsInput) {
+    id
+    price
+    date_listed
+    seller_email
+    verified
+    book_id
+  }
+}
+`;
+export const updateListings = `mutation UpdateListings($updatelistingsInput: UpdatelistingsInput!) {
+  updateListings(updatelistingsInput: $updatelistingsInput) {
+    id
+    price
+    date_listed
+    seller_email
+    verified
+    book_id
+  }
+}
+`;
+export const createMyType = `mutation CreateMyType($input: CreateMyTypeInput!) {
+  createMyType(input: $input) {
+    id
+    title
+    content
+    price
+    rating
+  }
+}
+`;
+export const updateMyType = `mutation UpdateMyType($input: UpdateMyTypeInput!) {
+  updateMyType(input: $input) {
+    id
+    title
+    content
+    price
+    rating
+  }
+}
+`;
+export const deleteMyType = `mutation DeleteMyType($input: DeleteMyTypeInput!) {
+  deleteMyType(input: $input) {
+    id
+    title
+    content
+    price
+    rating
   }
 }
 `;

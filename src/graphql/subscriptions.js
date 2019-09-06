@@ -1,123 +1,87 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateCourse = `subscription OnCreateCourse {
-  onCreateCourse {
+export const onCreateActiveOrders = `subscription OnCreateActiveOrders {
+  onCreateActive_orders {
     id
-    course_code
-    department_code
-    name
-    books {
-      items {
-        id
-        isbn10
-        title
-        amazon_used_price
-        image_link
-        edition
-      }
-      nextToken
-    }
+    buyer_email
+    date_ordered
+    listing_id
   }
 }
 `;
-export const onUpdateCourse = `subscription OnUpdateCourse {
-  onUpdateCourse {
+export const onCreateBooks = `subscription OnCreateBooks {
+  onCreateBooks {
     id
-    course_code
-    department_code
-    name
-    books {
-      items {
-        id
-        isbn10
-        title
-        amazon_used_price
-        image_link
-        edition
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const onDeleteCourse = `subscription OnDeleteCourse {
-  onDeleteCourse {
-    id
-    course_code
-    department_code
-    name
-    books {
-      items {
-        id
-        isbn10
-        title
-        amazon_used_price
-        image_link
-        edition
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const onCreateBook = `subscription OnCreateBook {
-  onCreateBook {
-    id
-    course {
-      id
-      course_code
-      department_code
-      name
-      books {
-        nextToken
-      }
-    }
-    isbn10
     title
+    isbn10
     amazon_used_price
-    image_link
     edition
+    image
   }
 }
 `;
-export const onUpdateBook = `subscription OnUpdateBook {
-  onUpdateBook {
-    id
-    course {
-      id
-      course_code
-      department_code
-      name
-      books {
-        nextToken
-      }
-    }
-    isbn10
-    title
-    amazon_used_price
-    image_link
-    edition
+export const onCreateCompletedOrders = `subscription OnCreateCompletedOrders {
+  onCreateCompleted_orders {
+    order_id
+    price
+    date_listed
+    date_ordered
+    date_completed
+    seller_email
+    buyer_email
+    reason
+    book_id
   }
 }
 `;
-export const onDeleteBook = `subscription OnDeleteBook {
-  onDeleteBook {
+export const onCreateCourses = `subscription OnCreateCourses {
+  onCreateCourses {
     id
-    course {
-      id
-      course_code
-      department_code
-      name
-      books {
-        nextToken
-      }
-    }
-    isbn10
+    code
+    subject_code
+    name
+  }
+}
+`;
+export const onCreateListings = `subscription OnCreateListings {
+  onCreateListings {
+    id
+    price
+    date_listed
+    seller_email
+    verified
+    book_id
+  }
+}
+`;
+export const onCreateMyType = `subscription OnCreateMyType {
+  onCreateMyType {
+    id
     title
-    amazon_used_price
-    image_link
-    edition
+    content
+    price
+    rating
+  }
+}
+`;
+export const onUpdateMyType = `subscription OnUpdateMyType {
+  onUpdateMyType {
+    id
+    title
+    content
+    price
+    rating
+  }
+}
+`;
+export const onDeleteMyType = `subscription OnDeleteMyType {
+  onDeleteMyType {
+    id
+    title
+    content
+    price
+    rating
   }
 }
 `;

@@ -1,14 +1,24 @@
 {
     "prod": {
         "awscloudformation": {
-            "AuthRoleName": "catsmarketnu-prod-20190904224321-authRole",
-            "UnauthRoleArn": "arn:aws:iam::861388200582:role/catsmarketnu-prod-20190904224321-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::861388200582:role/catsmarketnu-prod-20190904224321-authRole",
+            "AuthRoleName": "catsmarketnu-prod-20190905224340-authRole",
+            "UnauthRoleArn": "arn:aws:iam::861388200582:role/catsmarketnu-prod-20190905224340-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::861388200582:role/catsmarketnu-prod-20190905224340-authRole",
             "Region": "us-east-1",
-            "DeploymentBucketName": "catsmarketnu-prod-20190904224321-deployment",
-            "UnauthRoleName": "catsmarketnu-prod-20190904224321-unauthRole",
-            "StackName": "catsmarketnu-prod-20190904224321",
-            "StackId": "arn:aws:cloudformation:us-east-1:861388200582:stack/catsmarketnu-prod-20190904224321/4ecd9680-cf8f-11e9-b4a2-0e639cbb91d4"
+            "DeploymentBucketName": "catsmarketnu-prod-20190905224340-deployment",
+            "UnauthRoleName": "catsmarketnu-prod-20190905224340-unauthRole",
+            "StackName": "catsmarketnu-prod-20190905224340",
+            "StackId": "arn:aws:cloudformation:us-east-1:861388200582:stack/catsmarketnu-prod-20190905224340/8412b9f0-d058-11e9-b906-0e84d81b6574"
+        },
+        "categories": {
+            "api": {
+                "cmgraphql": {
+                    "rdsRegion": "us-east-1",
+                    "rdsClusterIdentifier": "arn:aws:rds:us-east-1:861388200582:cluster:catsmarket-aurora",
+                    "rdsSecretStoreArn": "arn:aws:secretsmanager:us-east-1:861388200582:secret:rds-db-credentials/cluster-LB3FLZ6U2RJNJLPLLD62VJXAO4/admin-H0zErU",
+                    "rdsDatabaseName": "catsmarket_prod"
+                }
+            }
         }
     }
 }

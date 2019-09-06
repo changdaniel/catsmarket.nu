@@ -1,84 +1,136 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getCourse = `query GetCourse($id: ID!) {
-  getCourse(id: $id) {
+export const getActiveOrders = `query GetActiveOrders($id: Int!) {
+  getActive_orders(id: $id) {
     id
-    course_code
-    department_code
-    name
-    books {
-      items {
-        id
-        isbn10
-        title
-        amazon_used_price
-        image_link
-        edition
-      }
-      nextToken
-    }
+    buyer_email
+    date_ordered
+    listing_id
   }
 }
 `;
-export const listCourses = `query ListCourses(
-  $filter: ModelCourseFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listCourses(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      course_code
-      department_code
-      name
-      books {
-        nextToken
-      }
-    }
-    nextToken
+export const listActiveOrderss = `query ListActiveOrderss {
+  listActive_orderss {
+    id
+    buyer_email
+    date_ordered
+    listing_id
   }
 }
 `;
-export const getBook = `query GetBook($id: ID!) {
-  getBook(id: $id) {
+export const getBooks = `query GetBooks($id: Int!) {
+  getBooks(id: $id) {
     id
-    course {
-      id
-      course_code
-      department_code
-      name
-      books {
-        nextToken
-      }
-    }
-    isbn10
     title
+    isbn10
     amazon_used_price
-    image_link
     edition
+    image
   }
 }
 `;
-export const listBooks = `query ListBooks(
-  $filter: ModelBookFilterInput
+export const listBookss = `query ListBookss {
+  listBookss {
+    id
+    title
+    isbn10
+    amazon_used_price
+    edition
+    image
+  }
+}
+`;
+export const getCompletedOrders = `query GetCompletedOrders($order_id: Int!) {
+  getCompleted_orders(order_id: $order_id) {
+    order_id
+    price
+    date_listed
+    date_ordered
+    date_completed
+    seller_email
+    buyer_email
+    reason
+    book_id
+  }
+}
+`;
+export const listCompletedOrderss = `query ListCompletedOrderss {
+  listCompleted_orderss {
+    order_id
+    price
+    date_listed
+    date_ordered
+    date_completed
+    seller_email
+    buyer_email
+    reason
+    book_id
+  }
+}
+`;
+export const getCourses = `query GetCourses($id: Int!) {
+  getCourses(id: $id) {
+    id
+    code
+    subject_code
+    name
+  }
+}
+`;
+export const listCoursess = `query ListCoursess {
+  listCoursess {
+    id
+    code
+    subject_code
+    name
+  }
+}
+`;
+export const getListings = `query GetListings($id: Int!) {
+  getListings(id: $id) {
+    id
+    price
+    date_listed
+    seller_email
+    verified
+    book_id
+  }
+}
+`;
+export const listListingss = `query ListListingss {
+  listListingss {
+    id
+    price
+    date_listed
+    seller_email
+    verified
+    book_id
+  }
+}
+`;
+export const getMyType = `query GetMyType($id: ID!) {
+  getMyType(id: $id) {
+    id
+    title
+    content
+    price
+    rating
+  }
+}
+`;
+export const listMyTypes = `query ListMyTypes(
+  $filter: ModelMyTypeFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listBooks(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listMyTypes(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      course {
-        id
-        course_code
-        department_code
-        name
-      }
-      isbn10
       title
-      amazon_used_price
-      image_link
-      edition
+      content
+      price
+      rating
     }
     nextToken
   }
