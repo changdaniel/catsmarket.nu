@@ -1,17 +1,8 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateActiveOrders = `subscription OnCreateActiveOrders {
-  onCreateActive_orders {
-    id
-    buyer_email
-    date_ordered
-    listing_id
-  }
-}
-`;
-export const onCreateBooks = `subscription OnCreateBooks {
-  onCreateBooks {
+export const onCreateBook = `subscription OnCreateBook {
+  onCreateBook {
     id
     title
     isbn10
@@ -21,22 +12,26 @@ export const onCreateBooks = `subscription OnCreateBooks {
   }
 }
 `;
-export const onCreateCompletedOrders = `subscription OnCreateCompletedOrders {
-  onCreateCompleted_orders {
-    order_id
-    price
-    date_listed
-    date_ordered
+export const onCreateCompleted = `subscription OnCreateCompleted {
+  onCreateCompleted {
+    id
     date_completed
-    seller_email
-    buyer_email
     reason
-    book_id
+    connection_id
   }
 }
 `;
-export const onCreateCourses = `subscription OnCreateCourses {
-  onCreateCourses {
+export const onCreateConnection = `subscription OnCreateConnection {
+  onCreateConnection {
+    id
+    buyer_email
+    date_connected
+    listing_id
+  }
+}
+`;
+export const onCreateCourse = `subscription OnCreateCourse {
+  onCreateCourse {
     id
     code
     subject_code
@@ -44,44 +39,14 @@ export const onCreateCourses = `subscription OnCreateCourses {
   }
 }
 `;
-export const onCreateListings = `subscription OnCreateListings {
-  onCreateListings {
+export const onCreateListing = `subscription OnCreateListing {
+  onCreateListing {
     id
     price
     date_listed
     seller_email
     verified
     book_id
-  }
-}
-`;
-export const onCreateMyType = `subscription OnCreateMyType {
-  onCreateMyType {
-    id
-    title
-    content
-    price
-    rating
-  }
-}
-`;
-export const onUpdateMyType = `subscription OnUpdateMyType {
-  onUpdateMyType {
-    id
-    title
-    content
-    price
-    rating
-  }
-}
-`;
-export const onDeleteMyType = `subscription OnDeleteMyType {
-  onDeleteMyType {
-    id
-    title
-    content
-    price
-    rating
   }
 }
 `;

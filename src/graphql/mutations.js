@@ -1,39 +1,8 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const deleteActiveOrders = `mutation DeleteActiveOrders($id: Int!) {
-  deleteActive_orders(id: $id) {
-    id
-    buyer_email
-    date_ordered
-    listing_id
-  }
-}
-`;
-export const createActiveOrders = `mutation CreateActiveOrders(
-  $createactive_ordersInput: Createactive_ordersInput!
-) {
-  createActive_orders(createactive_ordersInput: $createactive_ordersInput) {
-    id
-    buyer_email
-    date_ordered
-    listing_id
-  }
-}
-`;
-export const updateActiveOrders = `mutation UpdateActiveOrders(
-  $updateactive_ordersInput: Updateactive_ordersInput!
-) {
-  updateActive_orders(updateactive_ordersInput: $updateactive_ordersInput) {
-    id
-    buyer_email
-    date_ordered
-    listing_id
-  }
-}
-`;
-export const deleteBooks = `mutation DeleteBooks($id: Int!) {
-  deleteBooks(id: $id) {
+export const deleteBook = `mutation DeleteBook($id: Int!) {
+  deleteBook(id: $id) {
     id
     title
     isbn10
@@ -43,8 +12,8 @@ export const deleteBooks = `mutation DeleteBooks($id: Int!) {
   }
 }
 `;
-export const createBooks = `mutation CreateBooks($createbooksInput: CreatebooksInput!) {
-  createBooks(createbooksInput: $createbooksInput) {
+export const createBook = `mutation CreateBook($createBookInput: CreateBookInput!) {
+  createBook(createBookInput: $createBookInput) {
     id
     title
     isbn10
@@ -54,8 +23,8 @@ export const createBooks = `mutation CreateBooks($createbooksInput: CreatebooksI
   }
 }
 `;
-export const updateBooks = `mutation UpdateBooks($updatebooksInput: UpdatebooksInput!) {
-  updateBooks(updatebooksInput: $updatebooksInput) {
+export const updateBook = `mutation UpdateBook($updateBookInput: UpdateBookInput!) {
+  updateBook(updateBookInput: $updateBookInput) {
     id
     title
     isbn10
@@ -65,58 +34,62 @@ export const updateBooks = `mutation UpdateBooks($updatebooksInput: UpdatebooksI
   }
 }
 `;
-export const deleteCompletedOrders = `mutation DeleteCompletedOrders($order_id: Int!) {
-  deleteCompleted_orders(order_id: $order_id) {
-    order_id
-    price
-    date_listed
-    date_ordered
+export const deleteCompleted = `mutation DeleteCompleted($id: Int!) {
+  deleteCompleted(id: $id) {
+    id
     date_completed
-    seller_email
-    buyer_email
     reason
-    book_id
+    connection_id
   }
 }
 `;
-export const createCompletedOrders = `mutation CreateCompletedOrders(
-  $createcompleted_ordersInput: Createcompleted_ordersInput!
-) {
-  createCompleted_orders(
-    createcompleted_ordersInput: $createcompleted_ordersInput
-  ) {
-    order_id
-    price
-    date_listed
-    date_ordered
+export const createCompleted = `mutation CreateCompleted($createCompletedInput: CreateCompletedInput!) {
+  createCompleted(createCompletedInput: $createCompletedInput) {
+    id
     date_completed
-    seller_email
-    buyer_email
     reason
-    book_id
+    connection_id
   }
 }
 `;
-export const updateCompletedOrders = `mutation UpdateCompletedOrders(
-  $updatecompleted_ordersInput: Updatecompleted_ordersInput!
-) {
-  updateCompleted_orders(
-    updatecompleted_ordersInput: $updatecompleted_ordersInput
-  ) {
-    order_id
-    price
-    date_listed
-    date_ordered
+export const updateCompleted = `mutation UpdateCompleted($updateCompletedInput: UpdateCompletedInput!) {
+  updateCompleted(updateCompletedInput: $updateCompletedInput) {
+    id
     date_completed
-    seller_email
-    buyer_email
     reason
-    book_id
+    connection_id
   }
 }
 `;
-export const deleteCourses = `mutation DeleteCourses($id: Int!) {
-  deleteCourses(id: $id) {
+export const deleteConnection = `mutation DeleteConnection($id: Int!) {
+  deleteConnection(id: $id) {
+    id
+    buyer_email
+    date_connected
+    listing_id
+  }
+}
+`;
+export const createConnection = `mutation CreateConnection($createConnectionInput: CreateConnectionInput!) {
+  createConnection(createConnectionInput: $createConnectionInput) {
+    id
+    buyer_email
+    date_connected
+    listing_id
+  }
+}
+`;
+export const updateConnection = `mutation UpdateConnection($updateConnectionInput: UpdateConnectionInput!) {
+  updateConnection(updateConnectionInput: $updateConnectionInput) {
+    id
+    buyer_email
+    date_connected
+    listing_id
+  }
+}
+`;
+export const deleteCourse = `mutation DeleteCourse($id: Int!) {
+  deleteCourse(id: $id) {
     id
     code
     subject_code
@@ -124,8 +97,8 @@ export const deleteCourses = `mutation DeleteCourses($id: Int!) {
   }
 }
 `;
-export const createCourses = `mutation CreateCourses($createcoursesInput: CreatecoursesInput!) {
-  createCourses(createcoursesInput: $createcoursesInput) {
+export const createCourse = `mutation CreateCourse($createCourseInput: CreateCourseInput!) {
+  createCourse(createCourseInput: $createCourseInput) {
     id
     code
     subject_code
@@ -133,8 +106,8 @@ export const createCourses = `mutation CreateCourses($createcoursesInput: Create
   }
 }
 `;
-export const updateCourses = `mutation UpdateCourses($updatecoursesInput: UpdatecoursesInput!) {
-  updateCourses(updatecoursesInput: $updatecoursesInput) {
+export const updateCourse = `mutation UpdateCourse($updateCourseInput: UpdateCourseInput!) {
+  updateCourse(updateCourseInput: $updateCourseInput) {
     id
     code
     subject_code
@@ -142,8 +115,8 @@ export const updateCourses = `mutation UpdateCourses($updatecoursesInput: Update
   }
 }
 `;
-export const deleteListings = `mutation DeleteListings($id: Int!) {
-  deleteListings(id: $id) {
+export const deleteListing = `mutation DeleteListing($id: Int!) {
+  deleteListing(id: $id) {
     id
     price
     date_listed
@@ -153,8 +126,8 @@ export const deleteListings = `mutation DeleteListings($id: Int!) {
   }
 }
 `;
-export const createListings = `mutation CreateListings($createlistingsInput: CreatelistingsInput!) {
-  createListings(createlistingsInput: $createlistingsInput) {
+export const createListing = `mutation CreateListing($createListingInput: CreateListingInput!) {
+  createListing(createListingInput: $createListingInput) {
     id
     price
     date_listed
@@ -164,44 +137,14 @@ export const createListings = `mutation CreateListings($createlistingsInput: Cre
   }
 }
 `;
-export const updateListings = `mutation UpdateListings($updatelistingsInput: UpdatelistingsInput!) {
-  updateListings(updatelistingsInput: $updatelistingsInput) {
+export const updateListing = `mutation UpdateListing($updateListingInput: UpdateListingInput!) {
+  updateListing(updateListingInput: $updateListingInput) {
     id
     price
     date_listed
     seller_email
     verified
     book_id
-  }
-}
-`;
-export const createMyType = `mutation CreateMyType($input: CreateMyTypeInput!) {
-  createMyType(input: $input) {
-    id
-    title
-    content
-    price
-    rating
-  }
-}
-`;
-export const updateMyType = `mutation UpdateMyType($input: UpdateMyTypeInput!) {
-  updateMyType(input: $input) {
-    id
-    title
-    content
-    price
-    rating
-  }
-}
-`;
-export const deleteMyType = `mutation DeleteMyType($input: DeleteMyTypeInput!) {
-  deleteMyType(input: $input) {
-    id
-    title
-    content
-    price
-    rating
   }
 }
 `;

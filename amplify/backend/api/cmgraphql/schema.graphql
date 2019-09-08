@@ -1,33 +1,6 @@
-type MyType @model {
-  id: ID!
-  title: String!
-  content: String!
-  price: Int
-  rating: Float
-}
 
-input Createactive_ordersInput {
-  id: Int!
-  buyer_email: String!
-  date_ordered: AWSTimestamp!
-  listing_id: Int!
-}
 
-type active_orders {
-  id: Int!
-  buyer_email: String!
-  date_ordered: AWSTimestamp!
-  listing_id: Int!
-}
-
-input Updateactive_ordersInput {
-  id: Int!
-  buyer_email: String
-  date_ordered: AWSTimestamp
-  listing_id: Int
-}
-
-input CreatebooksInput {
+input CreateBookInput {
   id: Int!
   title: String
   isbn10: String!
@@ -36,7 +9,7 @@ input CreatebooksInput {
   image: String
 }
 
-type books {
+type Book {
   id: Int!
   title: String
   isbn10: String!
@@ -45,7 +18,7 @@ type books {
   image: String
 }
 
-input UpdatebooksInput {
+input UpdateBookInput {
   id: Int!
   title: String
   isbn10: String
@@ -54,64 +27,70 @@ input UpdatebooksInput {
   image: String
 }
 
-input Createcompleted_ordersInput {
-  order_id: Int!
-  price: Int!
-  date_listed: AWSTimestamp!
-  date_ordered: AWSTimestamp!
+input CreateCompletedInput {
+  id: Int!
   date_completed: AWSTimestamp!
-  seller_email: String!
-  buyer_email: String!
   reason: String
-  book_id: Int!
+  connection_id: Int!
 }
 
-type completed_orders {
-  order_id: Int!
-  price: Int!
-  date_listed: AWSTimestamp!
-  date_ordered: AWSTimestamp!
+type Completed {
+  id: Int!
   date_completed: AWSTimestamp!
-  seller_email: String!
-  buyer_email: String!
   reason: String
-  book_id: Int!
+  connection_id: Int!
 }
 
-input Updatecompleted_ordersInput {
-  order_id: Int!
-  price: Int
-  date_listed: AWSTimestamp
-  date_ordered: AWSTimestamp
+input UpdateCompletedInput {
+  id: Int!
   date_completed: AWSTimestamp
-  seller_email: String
-  buyer_email: String
   reason: String
-  book_id: Int
+  connection_id: Int
 }
 
-input CreatecoursesInput {
+input CreateConnectionInput {
+  id: Int!
+  buyer_email: String!
+  date_connected: AWSTimestamp!
+  listing_id: Int!
+}
+
+type Connection {
+  id: Int!
+  buyer_email: String!
+  date_connected: AWSTimestamp!
+  listing_id: Int!
+}
+
+input UpdateConnectionInput {
+  id: Int!
+  buyer_email: String
+  date_connected: AWSTimestamp
+  listing_id: Int
+}
+
+input CreateCourseInput {
   id: Int!
   code: String!
   subject_code: String!
   name: String!
 }
 
-type courses {
+type Course {
   id: Int!
   code: String!
   subject_code: String!
   name: String!
 }
 
-input UpdatecoursesInput {
+input UpdateCourseInput {
   id: Int!
   code: String
   subject_code: String
   name: String
 }
 
-input CreatelistingsInput {
+input CreateListingInput {
   id: Int!
   price: Int!
   date_listed: AWSTimestamp!
@@ -120,7 +99,7 @@ input CreatelistingsInput {
   book_id: Int!
 }
 
-type listings {
+type Listing {
   id: Int!
   price: Int!
   date_listed: AWSTimestamp!
@@ -129,7 +108,7 @@ type listings {
   book_id: Int!
 }
 
-input UpdatelistingsInput {
+input UpdateListingInput {
   id: Int!
   price: Int
   date_listed: AWSTimestamp
@@ -139,42 +118,42 @@ input UpdatelistingsInput {
 }
 
 type Mutation {
-  deleteActive_orders(id: Int!): active_orders
-  createActive_orders(createactive_ordersInput: Createactive_ordersInput!): active_orders
-  updateActive_orders(updateactive_ordersInput: Updateactive_ordersInput!): active_orders
-  deleteBooks(id: Int!): books
-  createBooks(createbooksInput: CreatebooksInput!): books
-  updateBooks(updatebooksInput: UpdatebooksInput!): books
-  deleteCompleted_orders(order_id: Int!): completed_orders
-  createCompleted_orders(createcompleted_ordersInput: Createcompleted_ordersInput!): completed_orders
-  updateCompleted_orders(updatecompleted_ordersInput: Updatecompleted_ordersInput!): completed_orders
-  deleteCourses(id: Int!): courses
-  createCourses(createcoursesInput: CreatecoursesInput!): courses
-  updateCourses(updatecoursesInput: UpdatecoursesInput!): courses
-  deleteListings(id: Int!): listings
-  createListings(createlistingsInput: CreatelistingsInput!): listings
-  updateListings(updatelistingsInput: UpdatelistingsInput!): listings
+  deleteBook(id: Int!): Book
+  createBook(createBookInput: CreateBookInput!): Book
+  updateBook(updateBookInput: UpdateBookInput!): Book
+  deleteCompleted(id: Int!): Completed
+  createCompleted(createCompletedInput: CreateCompletedInput!): Completed
+  updateCompleted(updateCompletedInput: UpdateCompletedInput!): Completed
+  deleteConnection(id: Int!): Connection
+  createConnection(createConnectionInput: CreateConnectionInput!): Connection
+  updateConnection(updateConnectionInput: UpdateConnectionInput!): Connection
+  deleteCourse(id: Int!): Course
+  createCourse(createCourseInput: CreateCourseInput!): Course
+  updateCourse(updateCourseInput: UpdateCourseInput!): Course
+  deleteListing(id: Int!): Listing
+  createListing(createListingInput: CreateListingInput!): Listing
+  updateListing(updateListingInput: UpdateListingInput!): Listing
 }
 
 type Query {
-  getActive_orders(id: Int!): active_orders
-  listActive_orderss: [active_orders]
-  getBooks(id: Int!): books
-  listBookss: [books]
-  getCompleted_orders(order_id: Int!): completed_orders
-  listCompleted_orderss: [completed_orders]
-  getCourses(id: Int!): courses
-  listCoursess: [courses]
-  getListings(id: Int!): listings
-  listListingss: [listings]
+  getBook(id: Int!): Book
+  listBooks: [Book]
+  getCompleted(id: Int!): Completed
+  listCompleteds: [Completed]
+  getConnection(id: Int!): Connection
+  listConnections: [Connection]
+  getCourse(id: Int!): Course
+  listCourses: [Course]
+  getListing(id: Int!): Listing
+  listListings: [Listing]
 }
 
 type Subscription {
-  onCreateActive_orders: active_orders @aws_subscribe(mutations: ["createActive_orders"])
-  onCreateBooks: books @aws_subscribe(mutations: ["createBooks"])
-  onCreateCompleted_orders: completed_orders @aws_subscribe(mutations: ["createCompleted_orders"])
-  onCreateCourses: courses @aws_subscribe(mutations: ["createCourses"])
-  onCreateListings: listings @aws_subscribe(mutations: ["createListings"])
+  onCreateBook: Book @aws_subscribe(mutations: ["createBook"])
+  onCreateCompleted: Completed @aws_subscribe(mutations: ["createCompleted"])
+  onCreateConnection: Connection @aws_subscribe(mutations: ["createConnection"])
+  onCreateCourse: Course @aws_subscribe(mutations: ["createCourse"])
+  onCreateListing: Listing @aws_subscribe(mutations: ["createListing"])
 }
 
 schema {

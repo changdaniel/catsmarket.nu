@@ -1,26 +1,8 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getActiveOrders = `query GetActiveOrders($id: Int!) {
-  getActive_orders(id: $id) {
-    id
-    buyer_email
-    date_ordered
-    listing_id
-  }
-}
-`;
-export const listActiveOrderss = `query ListActiveOrderss {
-  listActive_orderss {
-    id
-    buyer_email
-    date_ordered
-    listing_id
-  }
-}
-`;
-export const getBooks = `query GetBooks($id: Int!) {
-  getBooks(id: $id) {
+export const getBook = `query GetBook($id: Int!) {
+  getBook(id: $id) {
     id
     title
     isbn10
@@ -30,8 +12,8 @@ export const getBooks = `query GetBooks($id: Int!) {
   }
 }
 `;
-export const listBookss = `query ListBookss {
-  listBookss {
+export const listBooks = `query ListBooks {
+  listBooks {
     id
     title
     isbn10
@@ -41,36 +23,44 @@ export const listBookss = `query ListBookss {
   }
 }
 `;
-export const getCompletedOrders = `query GetCompletedOrders($order_id: Int!) {
-  getCompleted_orders(order_id: $order_id) {
-    order_id
-    price
-    date_listed
-    date_ordered
+export const getCompleted = `query GetCompleted($id: Int!) {
+  getCompleted(id: $id) {
+    id
     date_completed
-    seller_email
-    buyer_email
     reason
-    book_id
+    connection_id
   }
 }
 `;
-export const listCompletedOrderss = `query ListCompletedOrderss {
-  listCompleted_orderss {
-    order_id
-    price
-    date_listed
-    date_ordered
+export const listCompleteds = `query ListCompleteds {
+  listCompleteds {
+    id
     date_completed
-    seller_email
-    buyer_email
     reason
-    book_id
+    connection_id
   }
 }
 `;
-export const getCourses = `query GetCourses($id: Int!) {
-  getCourses(id: $id) {
+export const getConnection = `query GetConnection($id: Int!) {
+  getConnection(id: $id) {
+    id
+    buyer_email
+    date_connected
+    listing_id
+  }
+}
+`;
+export const listConnections = `query ListConnections {
+  listConnections {
+    id
+    buyer_email
+    date_connected
+    listing_id
+  }
+}
+`;
+export const getCourse = `query GetCourse($id: Int!) {
+  getCourse(id: $id) {
     id
     code
     subject_code
@@ -78,8 +68,8 @@ export const getCourses = `query GetCourses($id: Int!) {
   }
 }
 `;
-export const listCoursess = `query ListCoursess {
-  listCoursess {
+export const listCourses = `query ListCourses {
+  listCourses {
     id
     code
     subject_code
@@ -87,8 +77,8 @@ export const listCoursess = `query ListCoursess {
   }
 }
 `;
-export const getListings = `query GetListings($id: Int!) {
-  getListings(id: $id) {
+export const getListing = `query GetListing($id: Int!) {
+  getListing(id: $id) {
     id
     price
     date_listed
@@ -98,41 +88,14 @@ export const getListings = `query GetListings($id: Int!) {
   }
 }
 `;
-export const listListingss = `query ListListingss {
-  listListingss {
+export const listListings = `query ListListings {
+  listListings {
     id
     price
     date_listed
     seller_email
     verified
     book_id
-  }
-}
-`;
-export const getMyType = `query GetMyType($id: ID!) {
-  getMyType(id: $id) {
-    id
-    title
-    content
-    price
-    rating
-  }
-}
-`;
-export const listMyTypes = `query ListMyTypes(
-  $filter: ModelMyTypeFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listMyTypes(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      title
-      content
-      price
-      rating
-    }
-    nextToken
   }
 }
 `;

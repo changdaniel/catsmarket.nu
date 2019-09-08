@@ -1,0 +1,12 @@
+#set( $cols = [] )
+#set( $vals = [] )
+#foreach( $entry in $ctx.args.createConnectionInput.keySet() )
+  #set( $discard = $cols.add($entry) )
+  #set( $discard = $vals.add("'$ctx.args.createConnectionInput[$entry]'") )
+#end
+#set( $valStr = $vals.toString().replace("[","(").replace("]",")") )
+#set( $colStr = $cols.toString().replace("[","(").replace("]",")") )
+{
+  "version": "2018-05-29",
+  "statements":   ["INSERT INTO Connection $colStr VALUES $valStr", "SELECT * FROM Connection WHERE id=$ctx.args.createConnectionInput.id"]
+}
