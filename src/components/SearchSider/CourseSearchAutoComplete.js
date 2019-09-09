@@ -2,7 +2,24 @@ import React from 'react'
 import Fuse from 'fuse.js'
 import courses from './courses.json'
 import { AutoComplete } from 'antd';
+import './CourseSearchAutoComplete.css'
 
+var options = {
+  shouldSort: true,
+  tokenize: true,
+  threshold: 0.4,
+  location: 0,
+  distance: 100,
+  maxPatternLength: 32,
+  minMatchCharLength: 1,
+  keys: [
+    "dept_symbol",
+    "catalog_num",
+    "name"
+  ]
+};
+
+var fuse = new Fuse(courses, options)
 
 function onSelect(value) {
     console.log('onSelect', value);
@@ -22,21 +39,6 @@ function constructSearchResult(result){
 
 }
 
-var options = {
-    shouldSort: true,
-    tokenize: true,
-    threshold: 0.4,
-    location: 0,
-    distance: 100,
-    maxPatternLength: 32,
-    minMatchCharLength: 1,
-    keys: [
-      "dept_symbol",
-      "catalog_num",
-      "name"
-    ]
-  };
-
 export default class CourseAutoComplete extends React.Component{
     
     state = {
@@ -46,7 +48,6 @@ export default class CourseAutoComplete extends React.Component{
 
     onSearch = searchText => {
 
-        var fuse = new Fuse(courses, options)
         var results = fuse.search(this.state.value)
 
         this.setState({
@@ -62,6 +63,8 @@ export default class CourseAutoComplete extends React.Component{
 
         return(
             <AutoComplete
+            className = 'course-search-box'
+            
             dropdownMatchSelectWidth={false}
             value = {this.state.value}
             dataSource={this.state.dataSource}
@@ -69,7 +72,7 @@ export default class CourseAutoComplete extends React.Component{
             onSelect={onSelect}
             onSearch={this.onSearch}
             onChange = {this.onChange}
-            placeholder="ECON 201"
+            placeholder="ex. ECON 201"
           />
 
         )
