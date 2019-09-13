@@ -1,12 +1,3 @@
 {
-    "api": {
-        "cmgraphql": {
-            "service": "AppSync",
-            "providerPlugin": "awscloudformation",
-            "output": {
-                "securityType": "API_KEY"
-            },
-            "rdsInit": true
-        }
-    }
+	"api": {}
 }
