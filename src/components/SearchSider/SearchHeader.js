@@ -3,9 +3,9 @@ import { Typography } from 'antd'
 
 const { Title } = Typography
 
-function SearchHeader(){
+const SearchHeader = () => {
     return(
-        <Title level = {2} align = 'center'> Search </Title>
+        <Title style = {{}} level = {3} align = 'center'> Search </Title>
 
     )
 }

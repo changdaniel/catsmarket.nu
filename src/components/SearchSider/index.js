@@ -1,6 +1,14 @@
 import React from 'react'
+import SearchHeader from './SearchHeader.js';
+import CourseAutoComplete from './CourseSearchAutoComplete.js';
 
-class SearchSider extends React.Component{
-
-
+const SearchSider = () => {
+    return(
+        <div>
+            <SearchHeader/>
+            <CourseAutoComplete/>
+        </div>
+    )
 }
+
+export default SearchSider

@@ -1,43 +1,28 @@
 import React from 'react'
 import Fuse from 'fuse.js'
-import courses from './courses.json'
-import { AutoComplete } from 'antd';
-import './CourseSearchAutoComplete.css'
+// import courses from './courses.json'
+import courses from './courses_v2.json'
+import { AutoComplete , Icon, Input} from 'antd';
+import '../MyStyles.css'
 
-var options = {
+const options = {
   shouldSort: true,
   tokenize: true,
-  threshold: 0.4,
+  threshold: 0.15,
   location: 0,
   distance: 100,
-  maxPatternLength: 32,
+  maxPatternLength: 25,
   minMatchCharLength: 1,
   keys: [
-    "dept_symbol",
-    "catalog_num",
-    "name"
+    "details.dept_symbol",
+    "details.catalog_num",
+    "details.name"
   ]
 };
 
+const DISPLAY_COUNT = 5;
+
 var fuse = new Fuse(courses, options)
-
-function onSelect(value) {
-    console.log('onSelect', value);
-}
-
-function constructSearchResult(result){
-
-  var result_arr = result
-    .filter((course,index) => {
-      return index < 3
-    })
-    .map(course => {
-      return course['dept_symbol'] + " " + course['catalog_num'] + ": " + course['name']
-    })
-
-    return result_arr
-
-}
 
 export default class CourseAutoComplete extends React.Component{
     
@@ -49,9 +34,9 @@ export default class CourseAutoComplete extends React.Component{
     onSearch = searchText => {
 
         var results = fuse.search(this.state.value)
-
+        
         this.setState({
-          dataSource: !searchText ? [] : constructSearchResult(results)
+          dataSource: !(searchText || results) ? [] : results.filter((course,index) => { return index < DISPLAY_COUNT})
         });
       };
     
@@ -59,21 +44,28 @@ export default class CourseAutoComplete extends React.Component{
         this.setState({ value });
       };
 
+
+    onSelect = value => {
+
+      for (let course of this.state.dataSource) if (course['display_name'] === value) console.log(course)
+      
+    }
+
     render() {
 
         return(
             <AutoComplete
             className = 'course-search-box'
-            
             dropdownMatchSelectWidth={false}
             value = {this.state.value}
-            dataSource={this.state.dataSource}
-            style={{ width: 200 }}
-            onSelect={onSelect}
+            dataSource={this.state.dataSource.map(course => course['display_name'])}
+            onSelect={this.onSelect}
             onSearch={this.onSearch}
             onChange = {this.onChange}
             placeholder="ex. ECON 201"
-          />
+          >
+            <Input suffix={<Icon type="search"/>}> </Input>
+          </AutoComplete>
 
         )
     }
